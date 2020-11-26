@@ -4,7 +4,7 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
 
-var strData = "This is string";
+/*var strData = "This is string";
 console.log(strData);
 
 var numData = 150;
@@ -26,9 +26,9 @@ var arrNumbers = [1,2,34,567,9000];
 console.log(arrNumbers);
 
 var arrMixs = ["name",12,true,arrNumbers];
-console.log(arrMixs);
+console.log(arrMixs);*/
 
-var arr3=[1,2]
+var gameState="onsling";
 
 
 function preload() { 
@@ -91,12 +91,15 @@ function draw(){
 }
 
 function mouseDragged(){
-    Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
+    if(gameState!=="launched"){
+        Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
+    }
 }
 
 
 function mouseReleased(){
     slingshot.fly();
+    gameState="launched";
 }
 
 function keyPressed(){
